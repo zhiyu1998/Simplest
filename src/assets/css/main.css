@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+#app,
+.wrapper {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'microsoft yahei', arial, STHeiTi,
+		sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.content-box {
+	position: absolute;
+	left: 150px;
+	right: 0;
+	bottom: 0;
+	top: 70px;
+	-webkit-transition: left 0.3s ease-in-out;
+	transition: left 0.3s ease-in-out;
+}
+
+.content {
+	width: auto;
+	height: 100%;
+	padding: 10px;
+	overflow-y: hidden; /* 引入element-ui的滚轮后开启隐藏  */
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'Permanent Marker';
+	src: url('../font/PermanentMarker-Regular.ttf');
+}
+
+.typed {
+	position: absolute;
+	top: 20%;
+	left: 40%;
+	color: #fff;
+	font-size: 30px;
+	font-family: Permanent Marker;
+	z-index: -1;
+}

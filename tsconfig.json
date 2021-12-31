@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve", // 编译自制组件
+    "noImplicitThis": false, //当 this 表达式的值为 any类型的时候，生成一个错误。
+    "removeComments": false, // 是否移除注释
+    "pretty": true, // 给错误和消息设置样式，使用颜色和上下文
+    // "noUnusedParameters": true, //若有未使用的参数则抛错
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"]
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.vue"],
+  // ts 排除的文件
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
