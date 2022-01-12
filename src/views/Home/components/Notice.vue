@@ -41,6 +41,7 @@ export default defineComponent({
 }
 
 .box-card {
+	animation: slideInRight 0.7s;
 	margin-top: 20px;
 }
 </style>

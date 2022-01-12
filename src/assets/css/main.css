@@ -21,19 +21,9 @@ a {
 	text-decoration: none;
 }
 
-.content-box {
-	position: absolute;
-	left: 150px;
-	right: 0;
-	bottom: 0;
-	top: 70px;
-	-webkit-transition: left 0.3s ease-in-out;
-	transition: left 0.3s ease-in-out;
-}
-
 .content {
-	width: auto;
-	height: 100%;
+	height: auto;
+	width: 100%;
 	padding: 10px;
 	overflow-y: hidden; /* 引入element-ui的滚轮后开启隐藏  */
 	overflow-x: hidden;

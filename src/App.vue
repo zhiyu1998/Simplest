@@ -2,9 +2,7 @@
 	<router-view />
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style>
 @import './assets/css/main.css';

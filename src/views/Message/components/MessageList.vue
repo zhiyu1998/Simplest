@@ -156,6 +156,7 @@ export default defineComponent({
 </script>
 <style scoped lang="less">
 .message-card {
+	animation: fadeInUp 0.8s;
 	margin: 15px 0;
 }
 

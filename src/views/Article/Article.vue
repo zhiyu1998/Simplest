@@ -1,5 +1,9 @@
 <template>
-	<el-row justify="center" class="article-container" v-loading.fullscreen.lock="state.loading">
+	<el-row
+		class="article-container"
+		:class="state.isCatalogueShow ? 'article-card-move' : ''"
+		v-loading.fullscreen.lock="state.loading"
+	>
 		<el-col :span="18">
 			<div class="article-content">
 				<el-card shadow="hover" class="article-card">
@@ -14,9 +18,9 @@
 				</el-card>
 			</div>
 		</el-col>
-		<el-col :offset="1" :span="4" v-if="state.isCatalogueShow">
+		<div class="catalogue" v-if="state.isCatalogueShow">
 			<scroll-to :toc="state.toc" v-if="state.toc" />
-		</el-col>
+		</div>
 	</el-row>
 </template>
 <script lang="ts">
@@ -109,20 +113,37 @@ export default defineComponent({
 })
 </script>
 <style lang="less">
-.article-content {
-	margin: 45% 0 20px 0;
-	.article-card {
-		border-radius: 25px;
-		box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-		pre {
-			font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-				'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+.article-container {
+	left: 10%;
+	transition: left 1200ms;
 
-			margin: 10px 0;
-			padding: 20px;
-			box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-				rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+	.article-content {
+		margin-top: 45%;
+		.article-card {
+			animation: slideInDown 1.5s;
+			border-radius: 25px;
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+			pre {
+				font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+					'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+
+				margin: 10px 0;
+				padding: 20px;
+				box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+					rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+			}
 		}
 	}
+}
+
+.catalogue {
+	position: absolute;
+	left: 66%;
+	width: 300px;
+	top: 0;
+}
+
+.article-card-move {
+	left: 5%;
 }
 </style>

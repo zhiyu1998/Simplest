@@ -2,7 +2,7 @@
 	<div class="home">
 		<Navigator />
 		<Header />
-		<div class="content-box" :class="{ 'content-collapse': collapse }">
+		<div class="content-box" :class="collapse ? 'content-box-leave' : 'content-box-enter'">
 			<el-scrollbar ref="scrollbar" @scroll="handleScroll">
 				<div class="content">
 					<router-view v-slot="{ Component }">
@@ -81,3 +81,20 @@ export default defineComponent({
 	},
 })
 </script>
+
+<style scoped lang="less">
+.content-box {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	top: 70px;
+}
+.content-box-enter {
+	transition: left 500ms;
+	left: 150px;
+}
+.content-box-leave {
+	transition: left 500ms;
+	left: 50px;
+}
+</style>

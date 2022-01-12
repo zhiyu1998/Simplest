@@ -2,7 +2,7 @@
 	<div>
 		<el-row class="friends-container" justify="center" :gutter="24">
 			<el-col :span="18" :offset="0">
-				<el-card style="border-radius: 20px" shadow="hover">
+				<el-card style="border-radius: 20px; animation: fadeInDown 0.9s" shadow="hover">
 					<div class="friends-content">
 						<div class="friend" v-for="i in 20" :key="i">
 							<el-row :gutter="16" justify="center">

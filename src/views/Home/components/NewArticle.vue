@@ -44,6 +44,7 @@ export default defineComponent({
 </script>
 <style scoped lang="less">
 .box-card {
+	animation: slideInRight 0.9s;
 	margin-top: 20px;
 	.new-blog-item {
 		display: flex;

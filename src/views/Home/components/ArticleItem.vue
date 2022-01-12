@@ -22,7 +22,6 @@
 									:src="displayInfo.picture"
 									fit="cover"
 									class="blog-img"
-									lazy
 								></el-image>
 							</div>
 							<div>
@@ -185,6 +184,7 @@ export default defineComponent({
 
 .blog-card {
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	animation: slideInUp 0.6s;
 }
 
 .blog-img {

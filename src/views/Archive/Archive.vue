@@ -145,6 +145,7 @@ export default defineComponent({
 .archive-content {
 	margin: 35% 0 20px 0;
 	.archive-card {
+		animation: fadeInDown 1s;
 		border-radius: 25px;
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 		.archive-title {

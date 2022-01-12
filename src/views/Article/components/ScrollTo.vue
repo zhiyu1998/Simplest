@@ -6,7 +6,7 @@
 	</el-affix>
 </template>
 <script lang="ts">
-import { onMounted, reactive, defineComponent, onUnmounted } from 'vue'
+import { onMounted, reactive, defineComponent } from 'vue'
 import { Toc, TocTree } from '../../../types/index'
 import _ from 'lodash'
 import EventBus from '../../../utils/bus'

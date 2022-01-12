@@ -82,6 +82,7 @@ export default defineComponent({
 .tags-content {
 	margin: 35% 0 40px 0;
 	.tags-card {
+		animation: fadeInDown 0.9s;
 		border-radius: 25px;
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 

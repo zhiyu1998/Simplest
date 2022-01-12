@@ -170,6 +170,7 @@ export default defineComponent({
 	height: 100%;
 }
 .message-leave {
+	animation: fadeInDown 0.9s;
 	opacity: 0.8;
 	border-radius: 25px;
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;

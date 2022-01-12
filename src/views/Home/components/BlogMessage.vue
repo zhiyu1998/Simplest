@@ -51,6 +51,10 @@ export default defineComponent({
 </script>
 
 <style scoped lang="less">
+.box-card {
+	animation: slideInRight 0.5s;
+}
+
 .avatar {
 	display: block;
 	margin-left: auto;
