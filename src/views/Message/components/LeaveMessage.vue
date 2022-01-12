@@ -2,9 +2,9 @@
 	<el-card shadow="hover" class="message-leave">
 		<div class="message">
 			<el-form
-				:model="state.params"
+				:model="params"
 				status-icon
-				:rules="state.rules"
+				:rules="rules"
 				ref="params"
 				label-width="50px"
 				class="demo-ruleForm"
@@ -15,7 +15,7 @@
 							<el-input
 								type="textarea"
 								placeholder="必填"
-								v-model="state.params.content"
+								v-model="params.content"
 							></el-input>
 						</el-form-item>
 					</el-col>
@@ -24,15 +24,15 @@
 							<el-input
 								type="text"
 								placeholder="必填"
-								v-model="state.params.email"
+								v-model="params.email"
 								autocomplete="off"
 							></el-input>
 						</el-form-item>
 						<el-form-item label="网站" prop="phone">
-							<el-input v-model="state.params.phone" autocomplete="off"></el-input>
+							<el-input v-model="params.phone" autocomplete="off"></el-input>
 						</el-form-item>
 						<el-form-item label="昵称" prop="name">
-							<el-input v-model="state.params.name"></el-input>
+							<el-input v-model="params.name"></el-input>
 						</el-form-item>
 					</el-col>
 				</el-row>
@@ -41,7 +41,7 @@
 						<el-button
 							color="#16a085"
 							type="primary"
-							:loading="state.btnLoading"
+							:loading="btnLoading"
 							@click="submit"
 							>提交</el-button
 						>
@@ -73,7 +73,7 @@ const checkContent = (rule: any, value: string | any, callback: Function | any) 
 	}
 }
 
-import { reactive, defineComponent } from 'vue'
+import { reactive, defineComponent, toRefs } from 'vue'
 import { ElMessage } from 'element-plus'
 
 export default defineComponent({
@@ -159,7 +159,7 @@ export default defineComponent({
 			state.params.content = ''
 		}
 		return {
-			state,
+			...toRefs(state),
 			submit,
 		}
 	},

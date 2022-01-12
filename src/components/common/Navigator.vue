@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { useStore } from '../../store'
 import { useRoute } from 'vue-router'
 

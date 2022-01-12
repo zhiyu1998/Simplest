@@ -6,11 +6,11 @@
 				<el-row :gutter="24">
 					<el-col :span="12" class="blog-msg-item">
 						<span>文章</span>
-						<span>{{ state.blogCount }}</span>
+						<span>{{ blogCount }}</span>
 					</el-col>
 					<el-col :span="12" class="blog-msg-item">
 						<span>标签</span>
-						<span>{{ state.tagCount }}</span>
+						<span>{{ tagCount }}</span>
 					</el-col>
 				</el-row>
 			</div>
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, reactive, defineComponent } from 'vue'
+import { onMounted, reactive, defineComponent, toRefs} from 'vue'
 import urls from '../../../utils/urls'
 import service from '../../../utils/request'
 
@@ -43,7 +43,7 @@ export default defineComponent({
 		})
 
 		return {
-			state,
+			...toRefs(state),
 			getData,
 		}
 	},

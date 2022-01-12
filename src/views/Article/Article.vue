@@ -1,25 +1,21 @@
 <template>
 	<el-row
 		class="article-container"
-		:class="state.isCatalogueShow ? 'article-card-move' : ''"
-		v-loading.fullscreen.lock="state.loading"
+		:class="isCatalogueShow ? 'article-card-move' : ''"
+		v-loading.fullscreen.lock="loading"
 	>
 		<el-col :span="18">
 			<div class="article-content">
 				<el-card shadow="hover" class="article-card">
 					<el-row justify="center">
-						<h2>{{ state.articleDetail.title }}</h2>
+						<h2>{{ articleDetail.title }}</h2>
 					</el-row>
-					<div
-						justify="center"
-						ref="article-detail"
-						v-html="state.articleDetail.content"
-					></div>
+					<div justify="center" ref="article-detail" v-html="articleDetail.content"></div>
 				</el-card>
 			</div>
 		</el-col>
-		<div class="catalogue" v-if="state.isCatalogueShow">
-			<scroll-to :toc="state.toc" v-if="state.toc" />
+		<div class="catalogue" v-if="isCatalogueShow">
+			<scroll-to :toc="toc" v-if="toc" />
 		</div>
 	</el-row>
 </template>
@@ -28,7 +24,7 @@ import urls from '../../utils/urls'
 import service from '../../utils/request'
 import markdown from '../../utils/markdown'
 import { BlogDetail } from '../../types/index'
-import { onMounted, reactive, watch, defineComponent, onUnmounted } from 'vue'
+import { onMounted, reactive, watch, defineComponent, toRefs } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '../../store'
 import ScrollTo from './components/ScrollTo.vue'
@@ -107,7 +103,7 @@ export default defineComponent({
 		// })
 
 		return {
-			state,
+			...toRefs(state),
 		}
 	},
 })

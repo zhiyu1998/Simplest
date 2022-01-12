@@ -1,11 +1,11 @@
 <template>
-	<button :class="['bubbly-button', state.isClick ? 'animate' : '']" @click.prevent="handleClick">
+	<button :class="['bubbly-button', isClick ? 'animate' : '']" @click.prevent="handleClick">
 		<i class="iconfont blog-approve reply-approve"></i>
-		{{ state.like }}
+		{{ like }}
 	</button>
 </template>
 <script lang="ts">
-import { onMounted, defineComponent, reactive } from 'vue'
+import { onMounted, defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
 	props: {
 		like: {
@@ -32,7 +32,7 @@ export default defineComponent({
 
 		return {
 			handleClick,
-			state,
+			...toRefs(state),
 		}
 	},
 })

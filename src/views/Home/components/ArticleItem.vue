@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<div class="blog-content">
-			<div
-				v-for="(displayInfo, index) in state.displayBlogArr"
-				:key="index"
-				class="blog-items"
-			>
+			<div v-for="(displayInfo, index) in displayBlogArr" :key="index" class="blog-items">
 				<el-row class="grid-content">
 					<el-col :span="24">
 						<el-card
@@ -71,9 +67,9 @@
 			<el-pagination
 				background
 				layout="total, prev, pager, next, jumper"
-				:page-count="state.totalPages"
-				:total="state.totalSize"
-				v-model:current-page="state.params.pageIndex"
+				:page-count="totalPages"
+				:total="totalSize"
+				v-model:current-page="params.pageIndex"
 				@current-change="handleCurrentChange"
 			>
 			</el-pagination>
@@ -82,7 +78,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, reactive, defineComponent } from 'vue'
+import { onMounted, reactive, defineComponent, toRefs } from 'vue'
 import moment from 'moment'
 import { useRouter } from 'vue-router'
 import urls from '../../../utils/urls'
@@ -154,7 +150,7 @@ export default defineComponent({
 		}
 
 		return {
-			state,
+			...toRefs(state),
 			handleCurrentChange,
 			handleEnterDetail,
 		}

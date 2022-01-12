@@ -32,14 +32,14 @@
 				</el-row>
 			</div>
 		</el-row>
-		<div v-if="state.recLength > state.displayReplyCommentsCount" @click="handleMoreReply">
-			<span style="font-size: 13px; font-weight: thin">共有{{ state.recLength }}条回复，</span
+		<div v-if="recLength > displayReplyCommentsCount" @click="handleMoreReply">
+			<span style="font-size: 13px; font-weight: thin">共有{{ recLength }}条回复，</span
 			><span style="color: #2980b9; cursor: pointer">点击查看</span>
 		</div>
 	</div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref, toRefs } from 'vue'
 import moment from 'moment'
 import type { Message } from '../../../types'
 
@@ -72,7 +72,7 @@ export default defineComponent({
 		}
 
 		return {
-			state,
+			...toRefs(state),
 			replyComments,
 			moment,
 			handleMoreReply,

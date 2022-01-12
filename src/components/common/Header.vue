@@ -7,15 +7,10 @@
 		]"
 	>
 		<!-- 折叠按钮 -->
-		<div class="collapse-btn">
-			<el-button
-				@click="collapseChage"
-				style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; margin-left: 10px"
-				circle
-			>
-				<i v-if="collapse" class="iconfont blog-right"></i>
-				<i v-else class="iconfont blog-left"></i>
-			</el-button>
+		<div class="toggle" :class="{ active: !collapse }" @click="collapseChage">
+			<span></span>
+			<span></span>
+			<span></span>
 		</div>
 		<!-- LOGO -->
 		<div class="logo">
@@ -112,11 +107,48 @@ export default defineComponent({
 	-webkit-transition: left 0.3s ease-in-out;
 	transition: left 0.3s ease-in-out;
 	box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-	.collapse-btn {
+
+	.toggle {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		cursor: pointer;
-		margin-top: 10px;
-		position: absolute;
-		top: 0;
+		margin: 10px 0 0 10px;
+		overflow: hidden;
+		& span {
+			position: absolute;
+			width: 30px;
+			height: 2px;
+			background-color: #3498db;
+			border-radius: 10px;
+			transition: 0.5s;
+		}
+		& span:nth-child(1) {
+			transform: translateY(-15px);
+			width: 20px;
+			left: 6px;
+		}
+		&.active span:nth-child(1) {
+			width: 30px;
+			transform: translateY(0) rotate(45deg);
+		}
+		& span:nth-child(2) {
+			transform: translateY(15px);
+			width: 15px;
+			left: 6px;
+		}
+		&.active span:nth-child(2) {
+			width: 30px;
+			transform: translateY(0) rotate(-45deg);
+		}
+		&.active span:nth-child(3) {
+			transform: translateX(60px);
+		}
 	}
 	.right-side {
 		.search {

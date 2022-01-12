@@ -77,7 +77,6 @@
 				</div>
 			</el-col>
 		</el-row>
-		<el-avatar class="about-avatar" src="avatar.jpg" :size="180"></el-avatar>
 	</div>
 </template>
 <script></script>
@@ -98,7 +97,7 @@ p {
 		}
 	}
 	.about-avatar {
-		animation: slideInDown 1.5s;
+		animation: bounceInDown 1.3s;
 		position: absolute;
 		left: 45%;
 		margin-top: -6%;

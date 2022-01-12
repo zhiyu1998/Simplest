@@ -4,11 +4,11 @@
 			<el-col :span="18">
 				<div class="archive-content">
 					<el-card shadow="hover" class="archive-card">
-						<h2 style="margin-bottom: 20px">共计 {{ state.blogCount }} 篇</h2>
+						<h2 style="margin-bottom: 20px">共计 {{ blogCount }} 篇</h2>
 
 						<el-timeline>
 							<el-timeline-item
-								v-for="(item, index) in state.displayArchives"
+								v-for="(item, index) in displayArchives"
 								:key="item.id"
 								center
 								:timestamp="item.createTime"
@@ -51,8 +51,8 @@
 						<el-pagination
 							class="archive-pagination"
 							layout="prev, pager, next"
-							:page-count="state.totalPages"
-							:total="state.totalSize"
+							:page-count="totalPages"
+							:total="totalSize"
 						></el-pagination>
 					</el-card>
 				</div>
@@ -68,7 +68,7 @@ import urls from '../../utils/urls'
 import service from '../../utils/request'
 import { DisplayArch } from '../../types/index'
 
-import { reactive, defineComponent } from 'vue'
+import { reactive, defineComponent, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import moment from 'moment'
 
@@ -135,7 +135,7 @@ export default defineComponent({
 		}
 
 		return {
-			state,
+			...toRefs(state),
 			options,
 			handleEnterDetail,
 		}

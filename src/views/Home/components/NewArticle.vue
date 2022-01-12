@@ -3,7 +3,7 @@
 		<el-card class="box-card">
 			<template #header> 最新文章 </template>
 			<div class="blog-message">
-				<el-row v-for="blog in state.newBlogs" :key="blog.id" class="new-blog-item">
+				<el-row v-for="blog in newBlogs" :key="blog.id" class="new-blog-item">
 					<span>{{ blog.title }}</span>
 					<span>{{ moment(blog.createTime).format('YYYY-MM-DD') }}</span>
 					<el-divider style="padding: 0; margin: 0" border-style="dotted"></el-divider>
@@ -13,7 +13,7 @@
 	</div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, onMounted, reactive, toRefs } from 'vue'
 
 import urls from '../../../utils/urls'
 import service from '../../../utils/request'
@@ -36,7 +36,7 @@ export default defineComponent({
 		})
 
 		return {
-			state,
+			...toRefs(state),
 			moment,
 		}
 	},

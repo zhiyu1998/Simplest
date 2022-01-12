@@ -1,12 +1,12 @@
 <template>
 	<el-affix target=".article-container" :offset="100">
 		<el-card shadow="hover" class="catalogue">
-			<el-tree :data="state.dataTree" @node-click="handleNodeClick" />
+			<el-tree :data="dataTree" @node-click="handleNodeClick" />
 		</el-card>
 	</el-affix>
 </template>
 <script lang="ts">
-import { onMounted, reactive, defineComponent } from 'vue'
+import { onMounted, reactive, defineComponent, toRefs } from 'vue'
 import { Toc, TocTree } from '../../../types/index'
 import _ from 'lodash'
 import EventBus from '../../../utils/bus'
@@ -72,7 +72,7 @@ export default defineComponent({
 		}
 
 		return {
-			state,
+			...toRefs(state),
 			handleNodeClick,
 		}
 	},

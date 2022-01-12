@@ -4,10 +4,10 @@
 			<el-col :span="18">
 				<div class="tags-content">
 					<el-card shadow="hover" class="tags-card">
-						<h2 style="margin-bottom: 20px">共有 {{ state.tagCount }} 标签</h2>
+						<h2 style="margin-bottom: 20px">共有 {{ tagCount }} 标签</h2>
 						<el-card
 							class="letter-card"
-							v-for="(item, name, index) in state.tagList"
+							v-for="(item, name, index) in tagList"
 							:key="name"
 							:style="{ animation: 'fadeInRight 1' + index + '00ms' }"
 						>
@@ -43,7 +43,7 @@
 import urls from '../../utils/urls'
 import service from '../../utils/request'
 import { TagList } from '../../types/index'
-import { reactive, defineComponent } from 'vue'
+import { reactive, defineComponent, toRefs } from 'vue'
 
 import { Typed } from '../../components/typed'
 import type { TypedOptions } from '../../components/typed'
@@ -72,7 +72,7 @@ export default defineComponent({
 		}
 
 		return {
-			state,
+			...toRefs(state),
 			getData,
 			options,
 		}
