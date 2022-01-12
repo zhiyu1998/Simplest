@@ -8,5 +8,5 @@ export default {}
 
 <style>
 @import './assets/css/main.css';
-/* 请替换：@import '//at.alicdn.com/t/.css'; */
+@import './assets/icon/iconfont.css';
 </style>
