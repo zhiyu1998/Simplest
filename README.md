@@ -140,11 +140,6 @@
 >
 > npm install
 
-去icon-font找图标（前缀为blog【注：在iconfont创建项目的时候有FontClass/
-Symbol 前缀，填写blog即可】），生成URL放在src/App.vue下的<style>标签内
-
-> @import '//at.alicdn.com/t/xxxxxxxxxxxxxxxxxxxxx.css';
-
 运行
 
 > yarn run dev
