@@ -8,13 +8,14 @@
 
 						<el-timeline>
 							<el-timeline-item
-								v-for="item in state.displayArchives"
+								v-for="(item, index) in state.displayArchives"
 								:key="item.id"
 								center
 								:timestamp="item.createTime"
 								placement="top"
 							>
-								<el-card>
+								<!-- 优化逐个卡片加入的载入动画 -->
+								<el-card :style="{ animation: 'fadeInRight 1' + index + '00ms' }">
 									<el-row :gutter="24">
 										<el-col
 											:span="18"

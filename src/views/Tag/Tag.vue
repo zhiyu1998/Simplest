@@ -7,8 +7,9 @@
 						<h2 style="margin-bottom: 20px">共有 {{ state.tagCount }} 标签</h2>
 						<el-card
 							class="letter-card"
-							v-for="(item, name) in state.tagList"
+							v-for="(item, name, index) in state.tagList"
 							:key="name"
+							:style="{ animation: 'fadeInRight 1' + index + '00ms' }"
 						>
 							<el-row>
 								<h2>{{ name }}</h2>
