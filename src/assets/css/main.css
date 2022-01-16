@@ -21,15 +21,6 @@ a {
 	text-decoration: none;
 }
 
-.content {
-	height: auto;
-	width: 100%;
-	padding: 10px;
-	overflow-y: hidden; /* 引入element-ui的滚轮后开启隐藏  */
-	overflow-x: hidden;
-	box-sizing: border-box;
-}
-
 @font-face {
 	font-family: 'Permanent Marker';
 	src: url('../font/PermanentMarker-Regular.ttf');

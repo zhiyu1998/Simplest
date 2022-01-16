@@ -188,6 +188,10 @@ export default defineComponent({
 	width: 100%;
 	height: 120px;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	overflow: hidden;
+	&:hover {
+		animation: pulse 2s;
+	}
 }
 
 .blog-desc-box {

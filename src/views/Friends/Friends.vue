@@ -56,6 +56,7 @@ export default defineComponent({
 			height: 100px;
 			border: 1px none #000;
 			border-radius: 20px;
+			animation: slideInUp 1.3s;
 			&:hover {
 				background-color: #8395a7;
 				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

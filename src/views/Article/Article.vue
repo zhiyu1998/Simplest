@@ -116,7 +116,6 @@ export default defineComponent({
 	.article-content {
 		margin-top: 45%;
 		.article-card {
-			animation: slideInDown 1.5s;
 			border-radius: 25px;
 			box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 			pre {

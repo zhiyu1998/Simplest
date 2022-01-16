@@ -14,8 +14,12 @@
 					</router-view>
 				</div>
 			</el-scrollbar>
+			<el-backtop
+				target=".content-box .el-scrollbar__wrap"
+				:bottom="100"
+				:visibility-height="290"
+			></el-backtop>
 		</div>
-		<BackTop />
 	</div>
 </template>
 
@@ -25,7 +29,6 @@ import { useStore } from '../store'
 
 import Navigator from '@/components/common/Navigator.vue'
 import Header from '@/components/common/Header.vue'
-import BackTop from '@/components/common/BackTop.vue'
 import EventBus from '../utils/bus'
 
 import _ from 'lodash'
@@ -35,7 +38,6 @@ export default defineComponent({
 	components: {
 		Navigator,
 		Header,
-		BackTop,
 	},
 	setup() {
 		const store = useStore()
@@ -88,6 +90,14 @@ export default defineComponent({
 	right: 0;
 	bottom: 0;
 	top: 70px;
+}
+
+.content {
+	width: 100%;
+	padding: 10px;
+	overflow-y: hidden; /* 引入element-ui的滚轮后开启隐藏  */
+	overflow-x: hidden;
+	box-sizing: border-box;
 }
 .content-box-enter {
 	transition: left 500ms;
