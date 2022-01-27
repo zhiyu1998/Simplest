@@ -8,4 +8,5 @@ module.exports = {
 	bracketSpacing: true, // 对象大括号直接是否有空格，默认为true，效果：{ foo: bar }
 	endOfLine: 'crlf', // 结尾符号
 	bracketSameLine: false, // 是否将HTML '<>' 中的 '>'单独放一行出来 -- false 单独放
+	useTabs: false, // 不使用tab
 }

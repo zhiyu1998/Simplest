@@ -130,10 +130,16 @@
 
 
 
-## 部署（推荐使用Yarn）
+## 部署（Vite官方推荐使用PNPM）
+注：如果没有安装PNPM，可以参照下面命令：
+> npm install -g pnpm
 
 安装依赖
 
+> pnpm i
+>
+> or
+>
 > yarn install
 >
 > or
@@ -142,6 +148,10 @@
 
 运行
 
+> pnpm dev
+>
+> or
+>
 > yarn run dev
 >
 > or
