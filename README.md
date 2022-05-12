@@ -54,33 +54,33 @@
 
 ### 主页
 
-![home](github_image/home.png)
+![home](images/home.png)
 
 ### 归档
 
-![archive](github_image/archive.png)
+![archive](images/archive.png)
 
 ### 标签
 
-![tag](github_image/tag.png)
+![tag](images/tag.png)
 
 ### 留言板
 
-![message](github_image/message.png)
+![message](images/message.png)
 
 ### 关于
 
-![about](github_image/about.png)
+![about](images/about.png)
 
 ### 友情链接
 
-![friends](github_image/friends.png)
+![friends](images/friends.png)
 
 ### 博客详情
 
-![details](github_image/details.png)
+![details](images/details.png)
 
-![details2](github_image/details2.png)
+![details2](images/details2.png)
 
 
 
