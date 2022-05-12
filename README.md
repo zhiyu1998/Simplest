@@ -48,6 +48,10 @@
 
 ## 界面展示
 
+### 暗黑模式适配
+
+![dark](images/dark.png)
+
 ### 主页
 
 ![home](github_image/home.png)
@@ -98,7 +102,7 @@
 - [x] 留言板懒加载、回复模态框
 - [x] 组件动画
 - [ ] 目录树算法优化（目前算法导致锚点定位有问题）
-- [ ] 暗黑模式适配
+- [x] 暗黑模式适配
 - [ ] 移动端适配
 - [ ] 搜索文章
 - [ ] 公告栏
@@ -113,22 +117,20 @@
 
 ## 前端技术栈
 
-| 框架         | 版本         |
-| ------------ | ------------ |
-| axios        | 0.24.0       |
-| element-plus | 1.2.0-beta.6 |
-| moment       | 2.29.1       |
-| vue          | 3.2.25       |
-| vue-router   | 4            |
-| pinia        | 2.0.9        |
-| highlight.js | 11.3.1       |
-| marked       | 4.0.8        |
-| lodash       | 4.17.21      |
-| typed.js     | 2.0.12       |
-| mitt         | 3.0.0        |
-| animate.css  | 4.1.1        |
-
-
+| 框架         | 版本    |
+| ------------ | ------- |
+| axios        | 0.24.0  |
+| element-plus | 2.2.0   |
+| moment       | 2.29.1  |
+| vue          | 3.2.25  |
+| vue-router   | 4       |
+| pinia        | 2.0.9   |
+| highlight.js | 11.3.1  |
+| marked       | 4.0.8   |
+| lodash       | 4.17.21 |
+| typed.js     | 2.0.12  |
+| mitt         | 3.0.0   |
+| animate.css  | 4.1.1   |
 
 ## 部署（Vite官方推荐使用PNPM）
 注：如果没有安装PNPM，可以参照下面命令：

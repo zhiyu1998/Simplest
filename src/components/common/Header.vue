@@ -32,10 +32,11 @@
 							class="moon-mode-switch"
 							v-model="moonMode"
 							inline-prompt
-							:active-icon="Moon"
-							:inactive-icon="Sunny"
-							inactive-color="#3498db"
-							active-color="#2c3e50"
+							:active-icon="Sunny"
+							:inactive-icon="Moon"
+							inactive-color="#2c3e50"
+							active-color="#3498db"
+							@change="toggleDark()"
 						></el-switch>
 					</div>
 				</el-col>
@@ -53,6 +54,7 @@ import Search from './Search.vue'
 import { useRoute } from 'vue-router'
 
 import { Sunny, Moon } from '@element-plus/icons-vue'
+import { toggleDark } from '../darkToggle';
 
 export default defineComponent({
 	components: { Search },
@@ -69,7 +71,7 @@ export default defineComponent({
 
 		const collapse = computed(() => store.collapse)
 
-		const moonMode = ref(false)
+		const moonMode = ref(() => store.dark)
 
 		onMounted(() => {
 			if (document.body.clientWidth < 1500) {
@@ -88,6 +90,7 @@ export default defineComponent({
 			moonMode,
 			routeTitle,
 			route,
+			toggleDark,
 		}
 	},
 })
@@ -172,7 +175,6 @@ export default defineComponent({
 }
 
 .bg-null {
-	background: #fff;
 }
 
 .bg {
