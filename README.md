@@ -1,6 +1,6 @@
 # Simplest-Frontend
 
-![logo](github_image/logo.png)
+![logo](images/logo.png)
 
 ## 项目背景&设计理由
 
