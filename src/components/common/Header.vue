@@ -7,7 +7,7 @@
 		]"
 	>
 		<!-- 折叠按钮 -->
-		<div class="toggle" :class="{ active: !collapse }" @click="collapseChage">
+		<div class="toggle" :class="{ active: !collapse }" @click="collapseChange">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -30,7 +30,7 @@
 					<div class="moon-mode">
 						<el-switch
 							class="moon-mode-switch"
-							v-model="dark"
+							v-model="globalDark"
 							inline-prompt
 							:active-icon="Sunny"
 							:inactive-icon="Moon"
@@ -54,19 +54,20 @@ import Search from './Search.vue'
 import { useRoute } from 'vue-router'
 
 import { Sunny, Moon } from '@element-plus/icons-vue'
-import { toggleDark } from '../darkToggle';
+import { toggleDark, isDark } from '../darkToggle'
+
 
 export default defineComponent({
 	components: { Search },
-	setup() {
+	setup() {		
 		const route = useRoute()
 		const store = useStore()
 
 		const collapse = computed(() => store.collapse)
-		const dark = computed(() => store.dark)
+		const globalDark = computed(() => store.globalDark)
 
 		// 侧边栏折叠
-		const collapseChage = () => {
+		const collapseChange = () => {
 			store.$patch({
 				collapse: !collapse.value,
 			})
@@ -75,14 +76,13 @@ export default defineComponent({
 		const darkToggle = () => {
 			toggleDark()
 			store.$patch({
-				dark: !dark.value
+				globalDark: isDark.value
 			})
 		}
 
-
 		onMounted(() => {
 			if (document.body.clientWidth < 1500) {
-				collapseChage()
+				collapseChange()
 			}
 		})
 
@@ -90,14 +90,14 @@ export default defineComponent({
 
 		return {
 			collapse,
-			collapseChage,
+			collapseChange,
 			Sunny,
 			Moon,
 			Search,
 			routeTitle,
 			route,
-			darkToggle,
-			dark,
+			globalDark,
+			darkToggle
 		}
 	},
 })

@@ -15,14 +15,14 @@
         </el-row>
       </div>
       <el-row>
-        <div :class="moonMode ? 'btn' : 'btn-dark'">加入书签</div>
+        <div :class="moonMode ? 'btn-dark' : 'btn'">加入书签</div>
       </el-row>
     </el-card>
   </div>
 </template>
 
 <script lang="ts">
-import {onMounted, reactive, defineComponent, toRefs, ref, watch, computed} from 'vue'
+import {onMounted, reactive, defineComponent, toRefs, computed} from 'vue'
 import urls from '../../../utils/urls'
 import service from '../../../utils/request'
 import {useStore} from "../../../store"
@@ -41,10 +41,7 @@ export default defineComponent({
       state.tagCount = await service.get(urls.getTagCount)
     }
 
-    const moonMode = computed(() => store.dark)
-    watch(()=>moonMode, (newValue, oldValue) => {
-      console.log(newValue)
-    })
+    const moonMode = computed(() => store.globalDark)
 
     onMounted(() => {
       getData()

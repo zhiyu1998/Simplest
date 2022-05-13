@@ -4,7 +4,7 @@ export const useStore = defineStore('main', {
 	state: () => ({
 		collapse: false,
 		contentHeight: 0,
-		dark: true
+		globalDark: false
 	}),
 	getters: {},
 	actions: {},
