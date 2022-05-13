@@ -30,13 +30,13 @@
 					<div class="moon-mode">
 						<el-switch
 							class="moon-mode-switch"
-							v-model="moonMode"
+							v-model="dark"
 							inline-prompt
 							:active-icon="Sunny"
 							:inactive-icon="Moon"
 							inactive-color="#2c3e50"
 							active-color="#3498db"
-							@change="toggleDark()"
+							@change="darkToggle()"
 						></el-switch>
 					</div>
 				</el-col>
@@ -48,7 +48,7 @@
 	</div>
 </template>
 <script lang="ts">
-import { ref, computed, onMounted, defineComponent } from 'vue'
+import { computed, onMounted, defineComponent } from 'vue'
 import { useStore } from '../../store'
 import Search from './Search.vue'
 import { useRoute } from 'vue-router'
@@ -62,6 +62,9 @@ export default defineComponent({
 		const route = useRoute()
 		const store = useStore()
 
+		const collapse = computed(() => store.collapse)
+		const dark = computed(() => store.dark)
+
 		// 侧边栏折叠
 		const collapseChage = () => {
 			store.$patch({
@@ -69,9 +72,13 @@ export default defineComponent({
 			})
 		}
 
-		const collapse = computed(() => store.collapse)
+		const darkToggle = () => {
+			toggleDark()
+			store.$patch({
+				dark: !dark.value
+			})
+		}
 
-		const moonMode = ref(() => store.dark)
 
 		onMounted(() => {
 			if (document.body.clientWidth < 1500) {
@@ -87,10 +94,10 @@ export default defineComponent({
 			Sunny,
 			Moon,
 			Search,
-			moonMode,
 			routeTitle,
 			route,
-			toggleDark,
+			darkToggle,
+			dark,
 		}
 	},
 })
