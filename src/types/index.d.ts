@@ -5,7 +5,6 @@ export interface BlogDetail {
 	content: string
 	createTime: string
 	description: string
-	picture: string
 	flag: string
 	published: boolean
 	recommend: boolean
@@ -19,7 +18,6 @@ export interface BlogDetail {
 export interface DisplayInfo {
 	id: number
 	title: string
-	picture: string
 	updateTime: string
 	description: string
 	tags: Array<Tag>
@@ -77,11 +75,4 @@ export interface TocTree {
 export interface SearchValue {
 	value: string
 	link: string
-}
-
-export interface NewBlog {
-	id: number
-	createTime: string
-	title: string
-	published: boolean | null
 }

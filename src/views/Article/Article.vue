@@ -1,9 +1,6 @@
 <template>
-    <el-row
-        class="article-container"
-        :class="isCatalogueShow ? 'article-card-move' : ''"
-        v-loading.fullscreen.lock="loading"
-    >
+    <el-row class="article-container" :class="isCatalogueShow ? 'article-card-move' : ''"
+        v-loading.fullscreen.lock="loading">
         <el-col :span="18">
             <div class="article-content">
                 <el-card shadow="hover" class="article-card">
@@ -45,7 +42,6 @@ export default defineComponent({
                 content: '',
                 createTime: '',
                 description: '',
-                picture: '',
                 flag: '',
                 published: true,
                 recommend: false,
@@ -115,9 +111,11 @@ export default defineComponent({
 
     .article-content {
         margin-top: 45%;
+
         .article-card {
             border-radius: 25px;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+
             pre {
                 font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
                     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;

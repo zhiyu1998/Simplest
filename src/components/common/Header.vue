@@ -1,65 +1,58 @@
 <template>
-	<div
-		:class="[
-			'header',
-			collapse ? 'header-collapse-off' : 'header-collapse-on',
-			route.meta.title == 'Home' ? 'bg-null' : '',
-		]"
-	>
+	<div :class="[
+		'header',
+		collapse ? 'header-collapse-off' : 'header-collapse-on',
+	]">
 		<!-- 折叠按钮 -->
 		<div class="toggle" :class="{ active: !collapse }" @click="collapseChange">
 			<span></span>
 			<span></span>
 			<span></span>
 		</div>
-		<!-- LOGO -->
-		<div class="logo">
-			<!-- <el-image class="logo-img" src="logo.png" /> -->
-			<!-- <p>Simplest</p> -->
-		</div>
 		<div class="right-side">
 			<el-row :gutter="24">
-				<el-col :span="19">
+				<el-col :span="6">
 					<!-- 搜索栏 -->
 					<div class="search">
-						<Search />
+						<a href="#">
+							<el-icon color="#fff">
+								<Search />
+							</el-icon>
+						</a>
+						<!-- <Search /> -->
 					</div>
 				</el-col>
-				<!-- 暗黑模式 -->
-				<el-col :span="5">
+				<el-col :span="6">
+					<!-- 暗黑模式 -->
 					<div class="moon-mode">
-						<el-switch
-							class="moon-mode-switch"
-							v-model="globalDark"
-							inline-prompt
-							:active-icon="Sunny"
-							:inactive-icon="Moon"
-							inactive-color="#2c3e50"
-							active-color="#3498db"
-							@change="darkToggle()"
-						></el-switch>
+						<el-switch class="moon-mode-switch" v-model="globalDark" inline-prompt :active-icon="Sunny"
+							:inactive-icon="Moon" inactive-color="#2c3e50" active-color="#3498db"
+							@change="darkToggle()"></el-switch>
 					</div>
+				</el-col>
+				<el-col :span="16">
 				</el-col>
 			</el-row>
 		</div>
 	</div>
-	<div v-if="route.meta.title != 'Home'">
-		<el-image class="bg" fit="cover" :src="routeTitle.toLowerCase() + '.png' || ''" />
+	<div>
+		<el-image :class="route.meta.title == 'Home' ? 'bg-home' : 'bg'" fit="cover"
+			:src="routeTitle.toLowerCase() + '.png' || ''" />
 	</div>
 </template>
 <script lang="ts">
 import { computed, onMounted, defineComponent } from 'vue'
 import { useStore } from '../../store'
-import Search from './Search.vue'
+// import Search from './Search.vue'
 import { useRoute } from 'vue-router'
 
-import { Sunny, Moon } from '@element-plus/icons-vue'
+import { Sunny, Moon, Search } from '@element-plus/icons-vue'
 import { toggleDark, isDark } from '../darkToggle'
 
 
 export default defineComponent({
 	components: { Search },
-	setup() {		
+	setup() {
 		const route = useRoute()
 		const store = useStore()
 
@@ -108,7 +101,7 @@ export default defineComponent({
 	opacity: 0.9;
 	top: 0;
 	box-sizing: border-box;
-	padding-right: 65px;
+	padding-right: 100px;
 	width: 100%;
 	height: 70px;
 	font-size: 22px;
@@ -130,6 +123,7 @@ export default defineComponent({
 		cursor: pointer;
 		margin: 10px 0 0 10px;
 		overflow: hidden;
+
 		& span {
 			position: absolute;
 			width: 30px;
@@ -138,50 +132,57 @@ export default defineComponent({
 			border-radius: 10px;
 			transition: 0.5s;
 		}
+
 		& span:nth-child(1) {
 			transform: translateY(-15px);
 			width: 20px;
 			left: 6px;
 		}
+
 		&.active span:nth-child(1) {
 			width: 30px;
 			transform: translateY(0) rotate(45deg);
 		}
+
 		& span:nth-child(2) {
 			transform: translateY(15px);
 			width: 15px;
 			left: 6px;
 		}
+
 		&.active span:nth-child(2) {
 			width: 30px;
 			transform: translateY(0) rotate(-45deg);
 		}
+
 		&.active span:nth-child(3) {
 			transform: translateX(60px);
 		}
 	}
+
 	.right-side {
 		.search {
-			margin-top: 10px;
+			margin-top: 18px;
 		}
+
 		.collapse-on {
 			margin-right: 100px;
 		}
+
 		.moon-mode {
 			margin: 15px 50px 0 0;
 		}
 	}
 }
+
 @keyframes rotate {
 	0% {
 		transform: translate(-50%, -50%) rotate(0);
 	}
+
 	100% {
 		transform: translate(-50%, -50%) rotate(360deg);
 	}
-}
-
-.bg-null {
 }
 
 .bg {
@@ -192,9 +193,17 @@ export default defineComponent({
 	z-index: -2;
 }
 
+.bg-home {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -2;
+}
+
 .header-collapse-on {
 	left: 152px;
 }
+
 .header-collapse-off {
 	left: 65px;
 }

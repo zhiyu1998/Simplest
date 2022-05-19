@@ -4,30 +4,12 @@
             <div v-for="(displayInfo, index) in displayBlogArr" :key="index" class="blog-items">
                 <el-row class="grid-content">
                     <el-col :span="24">
-                        <el-card
-                            :body-style="{
-                                padding: '20px',
-                                height: '240px',
-                                borderRadius: '15px',
-                            }"
-                            shadow="hover"
-                            class="blog-card"
-                        >
-                            <div>
-                                <el-image
-                                    :src="displayInfo.picture"
-                                    fit="cover"
-                                    class="blog-img"
-                                ></el-image>
-                            </div>
+                        <el-card shadow="hover" class="blog-card">
                             <div>
                                 <el-row>
                                     <!-- 标题 -->
-                                    <div
-                                        class="blog-desc-box"
-                                        @click="handleEnterDetail(displayInfo.id)"
-                                    >
-                                        <h3 class="blog-title">{{ displayInfo.title }}</h3>
+                                    <div class="blog-desc-box" @click="handleEnterDetail(displayInfo.id)">
+                                        <h2 class="blog-title">{{ displayInfo.title }}</h2>
                                         <p class="blog-desc">
                                             {{ displayInfo.description }}
                                         </p>
@@ -36,16 +18,10 @@
                                 <el-row class="foot-message">
                                     <!-- 标签 -->
                                     <span class="tag-list">
-                                        <el-tag
-                                            class="tag"
-                                            v-for="tag in displayInfo.tags"
-                                            :key="tag.id"
-                                            effect="plain"
-                                            ><i
-                                                :class="
-                                                    'iconfont blog-' + tag.name.toLowerCase() || ''
-                                                "
-                                            ></i>
+                                        <el-tag class="tag" v-for="tag in displayInfo.tags" :key="tag.id"
+                                            effect="plain"><i :class="
+                                                'iconfont blog-' + tag.name.toLowerCase() || ''
+                                            "></i>
                                             {{ tag.name }}
                                         </el-tag>
                                     </span>
@@ -64,14 +40,8 @@
             </div>
         </div>
         <div class="footer">
-            <el-pagination
-                background
-                layout="total, prev, pager, next, jumper"
-                :page-count="totalPages"
-                :total="totalSize"
-                v-model:current-page="params.pageIndex"
-                @current-change="handleCurrentChange"
-            >
+            <el-pagination background layout="total, prev, pager, next, jumper" :page-count="totalPages"
+                :total="totalSize" v-model:current-page="params.pageIndex" @current-change="handleCurrentChange">
             </el-pagination>
         </div>
     </div>
@@ -115,7 +85,6 @@ export default defineComponent({
                 const displayInfo: DisplayInfo = reactive({
                     id: 0,
                     title: '',
-                    picture: '',
                     updateTime: '',
                     description: '',
                     tags: [],
@@ -123,7 +92,6 @@ export default defineComponent({
                 })
                 displayInfo.id = blog.id
                 displayInfo.title = blog.title
-                displayInfo.picture = blog.picture
                 displayInfo.updateTime = blog.updateTime
                 displayInfo.description = blog.description
                 displayInfo.views = blog.views
@@ -165,38 +133,30 @@ export default defineComponent({
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+
     .blog-items {
-        width: 50%;
+        width: 100%;
     }
 }
 
 .grid-content {
     margin-bottom: 20px;
     padding: 0 20px 0 20px;
+
     .blog-content {
         width: 50%;
     }
 }
 
 .blog-card {
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     animation: slideInUp 0.6s;
-}
-
-.blog-img {
-    border-radius: 5px;
-    width: 100%;
-    height: 120px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    overflow: hidden;
-    &:hover {
-        animation: pulse 2s;
-    }
+    border-style: none;
 }
 
 .blog-desc-box {
     padding: 10px 0 10px 10px;
     cursor: pointer;
+
     .blog-desc {
         color: #95a5a6;
         font-weight: thin;
@@ -210,6 +170,7 @@ export default defineComponent({
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
     }
+
     .blog-title {
         color: #34495e;
     }
@@ -219,6 +180,7 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
+
     .views {
         font-size: 13px;
         color: #999;
@@ -229,6 +191,7 @@ export default defineComponent({
     .tag-list {
         padding: 10px;
         flex-grow: 1;
+
         .tag {
             margin-left: 10px;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;

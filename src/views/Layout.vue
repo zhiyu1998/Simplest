@@ -14,11 +14,7 @@
                     </router-view>
                 </div>
             </el-scrollbar>
-            <el-backtop
-                target=".content-box .el-scrollbar__wrap"
-                :bottom="100"
-                :visibility-height="290"
-            ></el-backtop>
+            <el-backtop target=".content-box .el-scrollbar__wrap" :bottom="100" :visibility-height="290"></el-backtop>
         </div>
     </div>
 </template>
@@ -67,12 +63,17 @@ export default defineComponent({
         // })
 
         EventBus.on('tocAnchor', (anchor: string) => {
-            console.log(anchor)
+            // console.log(anchor)
 
             const offsetTop = document.getElementById(anchor)?.offsetTop
-            console.log(offsetTop)
+            // console.log(offsetTop)
 
             scrollbar.value.setScrollTop(offsetTop)
+        })
+
+        EventBus.on('scrollTo', (pos: number) => {
+            // console.log(pos);
+            scrollbar.value.scrollTo({ top: pos, behavior: "smooth" })
         })
 
         return {
@@ -95,14 +96,17 @@ export default defineComponent({
 .content {
     width: 100%;
     padding: 10px;
-    overflow-y: hidden; /* 引入element-ui的滚轮后开启隐藏  */
+    overflow-y: hidden;
+    /* 引入element-ui的滚轮后开启隐藏  */
     overflow-x: hidden;
     box-sizing: border-box;
 }
+
 .content-box-enter {
     transition: left 500ms;
     left: 150px;
 }
+
 .content-box-leave {
     transition: left 500ms;
     left: 50px;

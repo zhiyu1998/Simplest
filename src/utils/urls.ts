@@ -5,7 +5,6 @@ export const urls: any = {
 	getBlogInfoPage: '/blog/infoPage',
 	getBlogCount: '/blog/getCount',
 	getBlogDetails: '/blog/details',
-	getNewBlogs: '/blog/getNew',
 
 	getArchive: '/blog/getArchive',
 
